@@ -18,14 +18,17 @@ function findPairsSumTen(arr) {
 // O(n) - Usando Set/Hash
 function findPairsSumTenOptimized(arr) {
     const pairs = [];
-    const seen = new Set();
+    const seen = new Set(); // como funciona o set? 
+
 
     for (let num of arr) {
         const complement = 10 - num;
-        if (seen.has(complement)) {
+        if (seen.has(complement)) { 
+            // se o complemento já está no conjunto, significa que encontramos um par   
+            // que soma 10
             pairs.push([complement, num]);
         }
-        seen.add(num);
+        seen.add(num); // adiciona o número atual ao conjunto
     }
 
     return pairs;
