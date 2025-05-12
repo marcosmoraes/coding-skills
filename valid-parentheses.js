@@ -43,7 +43,6 @@ function isValid(s) {
         // Se for um parêntese de abertura, adiciona à pilha
         if (char === '(' || char === '{' || char === '[') {
             stack.push(char);
-            console.log(stack)
         }
         // Se for um parêntese de fechamento
         else {
@@ -52,7 +51,6 @@ function isValid(s) {
 
             // Pega o último parêntese de abertura da pilha
             const lastOpen = stack.pop();
-            console.log(stack)
 
             // Verifica se o parêntese de fechamento corresponde ao último de abertura
             if (pairs[char] !== lastOpen) return false;
@@ -64,11 +62,12 @@ function isValid(s) {
 }
 
 // Testes
-// console.log(isValid("()"));      // true
-// console.log(isValid("()[]{}"));  // true
-// console.log(isValid("(]"));      // false
-// console.log(isValid("([)]"));    // false
- console.log(isValid("{[]}"));    // true
-// console.log(isValid(""));        // true
-// console.log(isValid("("));       // false
-// console.log(isValid(")"));       // false
+console.log(isValid("()"));      // true
+console.log(isValid("()[]{}"));  // true
+console.log(isValid("(]"));      // false
+console.log(isValid("([)]"));    // false
+console.log(isValid("{[]}"));    // true
+console.log(isValid(""));        // true
+console.log(isValid("("));       // false
+console.log(isValid(")"));       // false
+
