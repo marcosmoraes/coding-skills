@@ -19,6 +19,16 @@ Esta pasta contém a documentação detalhada de cada exercício, explicando as 
    - Três implementações diferentes
    - Sistema de cache para otimização
 
+4. [Contador de Vagões](./contador-vagoes.md)
+   - Contagem de números pares em um array
+   - Cinco implementações diferentes
+   - Análise de performance entre métodos
+
+5. [Encontrar Soma Pares](./encontrar-soma-pares.md)
+   - Encontrar pares de números que somam 10
+   - Implementações com força bruta (O(n²)) e otimizada (O(n))
+   - Uso de Set para otimização
+
 ## Estrutura da Documentação
 
 Cada arquivo de documentação contém:
