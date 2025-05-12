@@ -115,3 +115,30 @@ Vamos analisar o funcionamento com o array `[2, 7, 11, 15]` e target `9`:
 ## Conclusão
 
 O uso do Map é crucial para otimizar a solução do Two Sum, reduzindo a complexidade de O(n²) para O(n). Esta é uma excelente demonstração de como a escolha da estrutura de dados correta pode impactar significativamente a performance de um algoritmo. 
+
+## Trade-off de Espaço vs. Tempo em Two Sum
+
+- A solução força bruta (O(n²)) não usa memória extra, mas é mais lenta
+- A solução com Map (O(n)) é mais rápida, mas usa O(n) de memória extra
+
+**Exemplo prático:**
+
+- Para array pequeno [2,7,11,15]: diferença de performance é mínima
+- Para array grande [1...1000000]: solução Map é muito mais rápida, mas usa mais memória
+
+**Situações onde o consumo de memória do Map pode ser problemático:**
+
+- Em sistemas embarcados ou dispositivos com memória limitada (IoT, por exemplo)
+- Quando processando múltiplos arrays grandes simultaneamente em memória
+- Em aplicações serverless com limites rigorosos de memória
+
+**Soluções alternativas para estes casos:**
+
+- Processar o array em chunks menores
+- Implementar uma solução in-place (modificando o array original)
+- Usar força bruta quando o dataset for pequeno o suficiente para não impactar performance
+
+**Quando escolher cada abordagem:**
+
+- Use força bruta se memória for extremamente limitada
+- Use Map se performance for prioridade (caso mais comum) 
