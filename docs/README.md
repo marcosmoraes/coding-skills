@@ -29,6 +29,30 @@ Esta pasta contém a documentação detalhada de cada exercício, explicando as 
    - Implementações com força bruta (O(n²)) e otimizada (O(n))
    - Uso de Set para otimização
 
+6. [Busca Binária](./busca-binaria.md)
+   - Implementação de busca binária em arrays ordenados
+   - Complexidade O(log n)
+   - Múltiplas implementações (while e for)
+   - Casos de uso e otimizações
+
+7. [Merge de Arrays Ordenados](./two-sorted-arrays.md)
+   - Combinação de dois arrays ordenados
+   - Implementação com two-pointer technique
+   - Complexidade O(n + m)
+   - Variações e casos de borda
+
+8. [Validação de Parênteses](./valid-parentheses.md)
+   - Verificação de parênteses balanceados
+   - Uso de stack para validação
+   - Complexidade O(n)
+   - Casos de teste e otimizações
+
+9. [Função Sort](./sort.md)
+   - Explicação da função sort() do JavaScript
+   - Ordenação de diferentes tipos de dados
+   - Funções de comparação personalizadas
+   - Casos de uso e boas práticas
+
 ## Estrutura da Documentação
 
 Cada arquivo de documentação contém:
@@ -38,6 +62,8 @@ Cada arquivo de documentação contém:
 - Implementações disponíveis
 - Exemplos de uso
 - Vantagens e desvantagens
+- Perguntas comuns em entrevistas
+- Dicas para implementação
 
 ## Como Usar
 
@@ -45,6 +71,7 @@ Cada arquivo de documentação contém:
 2. Leia a documentação para entender a implementação
 3. Consulte os exemplos de uso
 4. Verifique as complexidades das operações
+5. Pratique com os exercícios sugeridos
 
 ## Contribuindo
 
