@@ -1,6 +1,9 @@
 // 2. **Merge Two Sorted Arrays**
 //     - *Nível*: Média
 //     - *Estratégia*: two-pointer → O(n + m)
+//o que significa O(n + m)?
+//O(n + m) significa que o tempo de execução do algoritmo é proporcional à soma do tamanho dos arrays. 
+//Isso ocorre porque o algoritmo percorre cada array uma vez, comparando elementos e adicionando o menor ao resultado.
     
 //     **Problema:** Dado dois arrays ordenados em ordem crescente, combine-os em um único array ordenado.
     
@@ -70,6 +73,7 @@ function mergeSortedArrays(arr1, arr2) {
     return result;
 }
 
+
 // Testes
 console.log("Solução original:");
 console.log(twoMergedSorted([1, 3, 5, 7], [2, 4, 6, 8]));  // [1, 2, 3, 4, 5, 6, 7, 8]
@@ -79,9 +83,11 @@ console.log("\nSolução otimizada:");
 console.log(mergeSortedArrays([1, 3, 5, 7], [2, 4, 6, 8]));  // [1, 2, 3, 4, 5, 6, 7, 8]
 console.log(mergeSortedArrays([1, 2, 3, 8, 9], [4, 5, 6, 7]));  // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+
 // Casos de teste adicionais
 console.log("\nCasos de teste adicionais:");
 console.log(mergeSortedArrays([], [1, 2, 3]));  // [1, 2, 3]
 console.log(mergeSortedArrays([1, 2, 3], []));  // [1, 2, 3]
 console.log(mergeSortedArrays([1, 1, 1], [1, 1, 1]));  // [1, 1, 1, 1, 1, 1]
 console.log(mergeSortedArrays([-5, -3, -1], [-4, -2, 0]));  // [-5, -4, -3, -2, -1, 0]
+

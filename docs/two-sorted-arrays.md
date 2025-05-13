@@ -1,26 +1,24 @@
-# Merge de Dois Arrays Ordenados
+# Merge de Arrays Ordenados
 
-## O que é?
-O problema consiste em combinar dois arrays ordenados em um único array ordenado, mantendo a ordem dos elementos.
+## Problema
+Dado dois arrays ordenados em ordem crescente, combine-os em um único array ordenado.
 
 ## Exemplos
 ```javascript
 Input: 
 array1 = [1, 3, 5, 7]
 array2 = [2, 4, 6, 8]
-
 Output: [1, 2, 3, 4, 5, 6, 7, 8]
 
 Input:
 array1 = [1, 2, 3, 8, 9]
 array2 = [4, 5, 6, 7]
-
 Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 ## Implementações
 
-### 1. Solução Simples (Não Otimizada)
+### 1. Solução Não Otimizada
 ```javascript
 function twoMergedSorted(arr1, arr2){
     for (let index = 0; index < arr2.length; index++) {
@@ -29,10 +27,12 @@ function twoMergedSorted(arr1, arr2){
     return arr1.sort()
 }
 ```
-**Problemas desta solução:**
-- Modifica o array original
-- Complexidade: O((n+m)log(n+m)) devido ao sort
-- Não aproveita o fato dos arrays já estarem ordenados
+- **Complexidade de Tempo**: O((n + m) log(n + m)) devido ao uso do sort()
+- **Complexidade de Espaço**: O(1) pois modifica o array original
+- **Observações**: 
+  - Modifica o array original
+  - Usa sort() que é menos eficiente
+  - Não é a solução ideal para entrevistas
 
 ### 2. Solução Otimizada (Two-Pointer)
 ```javascript
@@ -67,92 +67,104 @@ function mergeSortedArrays(arr1, arr2) {
     return result;
 }
 ```
+- **Complexidade de Tempo**: O(n + m)
+- **Complexidade de Espaço**: O(n + m)
+- **Vantagens**:
+  - Mantém a ordem dos arrays originais
+  - Não modifica os arrays de entrada
+  - Mais eficiente que a solução com sort()
 
-**Vantagens desta solução:**
-- Complexidade: O(n + m)
-- Não modifica os arrays originais
-- Aproveita o fato dos arrays já estarem ordenados
-- Lida com todos os casos de borda
-
-## Complexidade
-- **Tempo**: O(n + m)
-  - Onde n e m são os tamanhos dos arrays
-  - Visitamos cada elemento exatamente uma vez
-- **Espaço**: O(n + m)
-  - Precisamos de um array auxiliar para o resultado
-
-## Casos de Teste Importantes
+## Teste de Mesa
+Vamos analisar o funcionamento da solução otimizada com o exemplo:
 ```javascript
-// Arrays vazios
-mergeSortedArrays([], [1, 2, 3])  // [1, 2, 3]
-mergeSortedArrays([1, 2, 3], [])  // [1, 2, 3]
-
-// Elementos duplicados
-mergeSortedArrays([1, 1, 1], [1, 1, 1])  // [1, 1, 1, 1, 1, 1]
-
-// Números negativos
-mergeSortedArrays([-5, -3, -1], [-4, -2, 0])  // [-5, -4, -3, -2, -1, 0]
+arr1 = [1, 3, 5, 7]
+arr2 = [2, 4, 6, 8]
 ```
 
+### Iteração 1:
+- i = 0, j = 0
+- arr1[0] = 1, arr2[0] = 2
+- 1 ≤ 2? Sim
+- result = [1]
+- i = 1
+
+### Iteração 2:
+- i = 1, j = 0
+- arr1[1] = 3, arr2[0] = 2
+- 3 ≤ 2? Não
+- result = [1, 2]
+- j = 1
+
+### Iteração 3:
+- i = 1, j = 1
+- arr1[1] = 3, arr2[1] = 4
+- 3 ≤ 4? Sim
+- result = [1, 2, 3]
+- i = 2
+
+### Iteração 4:
+- i = 2, j = 1
+- arr1[2] = 5, arr2[1] = 4
+- 5 ≤ 4? Não
+- result = [1, 2, 3, 4]
+- j = 2
+
+### Iteração 5:
+- i = 2, j = 2
+- arr1[2] = 5, arr2[2] = 6
+- 5 ≤ 6? Sim
+- result = [1, 2, 3, 4, 5]
+- i = 3
+
+### Iteração 6:
+- i = 3, j = 2
+- arr1[3] = 7, arr2[2] = 6
+- 7 ≤ 6? Não
+- result = [1, 2, 3, 4, 5, 6]
+- j = 3
+
+### Iteração 7:
+- i = 3, j = 3
+- arr1[3] = 7, arr2[3] = 8
+- 7 ≤ 8? Sim
+- result = [1, 2, 3, 4, 5, 6, 7]
+- i = 4
+
+### Iteração 8:
+- i = 4 (fim de arr1), j = 3
+- Adiciona elementos restantes de arr2
+- result = [1, 2, 3, 4, 5, 6, 7, 8]
+
+## Casos de Teste Importantes
+1. Arrays vazios
+2. Arrays de tamanhos diferentes
+3. Arrays com elementos duplicados
+4. Arrays com números negativos
+5. Arrays com um único elemento
+
 ## Variações Comuns em Entrevistas
-
-### 1. Restrições de Espaço
-- "Merge os arrays in-place (sem array auxiliar)"
-- "Use apenas O(1) de espaço extra"
-
-### 2. Variações de Dados
-- Arrays com elementos duplicados
-- Arrays com números negativos
-- Arrays vazios
-- Arrays de tamanhos diferentes
-
-### 3. Extensões do Problema
-- Merge de k arrays ordenados
-- Merge mantendo a ordem original dos elementos
-- Merge com remoção de duplicatas
-
-### 4. Otimizações
-- "Como melhorar a performance para arrays muito grandes?"
-- "Como lidar com arrays que não cabem na memória?"
+1. Merge k arrays ordenados
+2. Merge in-place (sem array auxiliar)
+3. Merge com remoção de duplicatas
+4. Merge com condição específica de ordenação
 
 ## Perguntas Típicas em Entrevistas
+1. Qual a complexidade de tempo e espaço da sua solução?
+2. Como você lidaria com arrays de tamanhos muito diferentes?
+3. Como você otimizaria a solução para arrays muito grandes?
+4. Como você testaria sua solução?
+5. Como você lidaria com arrays que não estão ordenados?
 
-### 1. Sobre Complexidade
-- "Qual a complexidade da sua solução?"
-- "Como você pode otimizar?"
-- "Qual o melhor caso? E o pior caso?"
-
-### 2. Sobre Implementação
-- "Por que usar two-pointer?"
-- "Como lidar com arrays de tamanhos diferentes?"
-- "Como garantir que a solução é estável?"
-
-### 3. Sobre Casos de Borda
-- "O que acontece com arrays vazios?"
-- "E se houver elementos duplicados?"
-- "Como tratar números negativos?"
-
-## Dicas para a Entrevista
-
-### 1. Antes de Codar
-- Confirme os requisitos
-- Pergunte sobre casos de borda
-- Explique sua abordagem
-
-### 2. Durante a Implementação
-- Use nomes claros para variáveis
-- Comente o código
-- Teste casos de borda
-
-### 3. Após a Implementação
-- Explique a complexidade
-- Sugira melhorias
-- Discuta trade-offs
+## Dicas para Entrevistas
+1. Comece com a solução mais simples e depois otimize
+2. Explique seu raciocínio passo a passo
+3. Considere casos de borda
+4. Teste sua solução com diferentes inputs
+5. Discuta trade-offs entre diferentes abordagens
 
 ## Exercícios para Praticar
-
-1. Implemente a solução in-place (sem array auxiliar)
-2. Modifique a solução para remover duplicatas durante o merge
-3. Implemente o merge de k arrays ordenados
-4. Adicione validação de entrada (verificar se arrays estão ordenados)
-5. Implemente uma versão que lida com arrays muito grandes (streaming) 
+1. Implemente a solução in-place
+2. Implemente a solução com remoção de duplicatas
+3. Implemente a solução para k arrays ordenados
+4. Implemente a solução com ordenação personalizada
+5. Implemente a solução com validação de entrada 
