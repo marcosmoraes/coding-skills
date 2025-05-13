@@ -19,7 +19,7 @@ Esta pasta contém a documentação detalhada de cada exercício, explicando as 
    - Três implementações diferentes
    - Sistema de cache para otimização
 
-4. [Contador de Vagões](./contador-vagoes.md) | [Código](../contador-vagoes.js)
+4. [Contador de Vagões](./contador-vagoes.md) | [Código](../contador-de-vagoes.js)
    - Contagem de números pares em um array
    - Cinco implementações diferentes
    - Análise de performance entre métodos
